@@ -28,12 +28,10 @@ onMounted(async () => {
 })
 
 async function fetchTrips(filters) {
-  console.log(filters, 'filters')
   loading.value = true
   let payload = {};
   if(filters) {
     const { startDate, endDate, distance } = filters
-    console.log(startDate, endDate, distance)
     payload = {
       start: startDate ? Date.parse(startDate) : null,
       end: endDate ? Date.parse(endDate) : null,

@@ -12,6 +12,7 @@
         name="OpenStreetMap"
       ></l-tile-layer>
       <l-marker 
+        class="marker"
         :lat-lng="[
           tStore.selectedTrip.start.lat,
           tStore.selectedTrip.start.lon
@@ -22,6 +23,7 @@
         </l-tooltip>
       </l-marker>
       <l-marker 
+        class="marker"
         :lat-lng="[
           tStore.selectedTrip.end.lat,
           tStore.selectedTrip.end.lon
@@ -58,9 +60,6 @@ const center = ref([])
 const route = useRoute()
 
 onBeforeMount(() => {
-  console.log(route.params.id)
-  tStore.setSelectedTrip(route.params.id)
-  console.log(tStore.selectedTrip)
   if(tStore.selectedTrip?.id) {
     center.value = [
       tStore.selectedTrip.start.lat,

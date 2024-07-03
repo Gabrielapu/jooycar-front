@@ -45,7 +45,6 @@ export const useTripStore = defineStore('tripStore', () => {
     'https://virtserver.swaggerhub.com/CONTABILIDAD/JooycarTest/1.0.0'
   
   async function getTrips({start, end, distance}) {
-    console.log(start, end, distance)
     try {
       let url = `${baseUrl}/api/trips/v1?limit=10`
 

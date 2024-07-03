@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filters.vue > renders correctly 1`] = `
+"<div class="filters">
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-text-field label="Distancia" class="mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
+  <v-btn color="primary" variant="outlined" class="mr-4"> Buscar </v-btn>
+</div>"
+`;

@@ -51,6 +51,7 @@
         </td>
         <td>
           <v-btn
+            class="my-button"
             color="primary"
             variant="outlined"
             density="compact"
