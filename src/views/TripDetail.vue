@@ -28,14 +28,16 @@
       ></l-tile-layer>
       <l-marker 
         :lat-lng="[
-          tStore.selectedTrip.start.lat,
-          tStore.selectedTrip.start.lon
+          // tStore.selectedTrip.start.lat,
+          // tStore.selectedTrip.start.lon
+          -40.275932, -73.077630
         ]"
       />
       <l-marker 
         :lat-lng="[
-          tStore.selectedTrip.end.lat,
-          tStore.selectedTrip.end.lon
+          // tStore.selectedTrip.end.lat,
+          // tStore.selectedTrip.end.lon
+          -40.304368, -73.057450
         ]"
       />
       <l-polygon :lat-lngs="getCoordinates()" color="green"/>
@@ -55,7 +57,7 @@ import { useTripStore } from '../stores/trip.js'
 import { useRoute } from "vue-router";
 
 const tStore = useTripStore()
-const zoom = ref(17)
+const zoom = ref(18)
 const center = ref([])
 const route = useRoute()
 
@@ -65,8 +67,9 @@ onBeforeMount(() => {
   console.log(tStore.selectedTrip)
   if(tStore.selectedTrip?.id) {
     center.value = [
-      tStore.selectedTrip.start.lat,
-      tStore.selectedTrip.start.lon
+      // tStore.selectedTrip.start.lat,
+      // tStore.selectedTrip.start.lon
+      -40.275932, -73.077630
     ]
   }
 })
@@ -74,20 +77,25 @@ onBeforeMount(() => {
 function getCoordinates() {
   return [
     [
-      tStore.selectedTrip.boundingBox[0].lat,
-      tStore.selectedTrip.boundingBox[0].lon
+      // tStore.selectedTrip.boundingBox[0].lat,
+      // tStore.selectedTrip.boundingBox[0].lon
+      -40.275932, -73.077630
     ],
     [
-      tStore.selectedTrip.boundingBox[1].lat,
-      tStore.selectedTrip.boundingBox[1].lon
+      // tStore.selectedTrip.boundingBox[1].lat,
+      // tStore.selectedTrip.boundingBox[1].lon
+      -40.274292, -73.056820
     ],
     [
-      tStore.selectedTrip.boundingBox[2].lat,
-      tStore.selectedTrip.boundingBox[2].lon
+      // tStore.selectedTrip.boundingBox[2].lat,
+      // tStore.selectedTrip.boundingBox[2].lon
+      
+      -40.304368, -73.057450
     ],
     [
-      tStore.selectedTrip.boundingBox[3].lat,
-      tStore.selectedTrip.boundingBox[3].lon
+      // tStore.selectedTrip.boundingBox[3].lat,
+      // tStore.selectedTrip.boundingBox[3].lon
+      -40.303796, -73.078039
     ],
   ]
 }
