@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filters.vue > renders correctly 1`] = `
+"<div data-v-11dc0277="" class="mx-4 my-2">
+  <h1 data-v-11dc0277="" class="text-h6"> Listado de viajes <h2 data-v-11dc0277="" class="text-subtitle-1">Este es un listado de tus viajes</h2>
+  </h1>
+</div>
+<hr data-v-11dc0277="" class="mx-4 mb-2">
+<div data-v-11dc0277="" class="filters">
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-text-field label="Distancia" class="mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
+  <v-btn color="primary" variant="outlined" class="mr-4"> Buscar </v-btn>
+</div>
+<v-table data-v-11dc0277="" class="elevation-1 mx-4 border-sm rounded-lg">
+  <thead>
+    <tr>
+      <th class="text-body-1 text-center"> Inicio </th>
+      <th class="text-body-1 text-center"> Término </th>
+      <th class="text-body-1 text-center"> Distancia y tiempo </th>
+      <th class="text-body-1 text-center"> Acciones </th>
+    </tr>
+  </thead>
+  <!--v-if-->
+  <tbody></tbody>
+</v-table>"
+`;
+
+exports[`Trips.vue > renders correctly 1`] = `
+"<div data-v-11dc0277="" class="mx-4 my-2">
+  <h1 data-v-11dc0277="" class="text-h6"> Listado de viajes <h2 data-v-11dc0277="" class="text-subtitle-1">Este es un listado de tus viajes</h2>
+  </h1>
+</div>
+<hr data-v-11dc0277="" class="mx-4 mb-2">
+<div data-v-11dc0277="" class="filters">
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-menu>
+    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
+  </v-menu>
+  <v-text-field label="Distancia" class="mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
+  <v-btn color="primary" variant="outlined" class="mr-4"> Buscar </v-btn>
+</div>
+<v-table data-v-11dc0277="" class="elevation-1 mx-4 border-sm rounded-lg">
+  <thead>
+    <tr>
+      <th class="text-body-1 text-center"> Inicio </th>
+      <th class="text-body-1 text-center"> Término </th>
+      <th class="text-body-1 text-center"> Distancia y tiempo </th>
+      <th class="text-body-1 text-center"> Acciones </th>
+    </tr>
+  </thead>
+  <!--v-if-->
+  <tbody></tbody>
+</v-table>"
+`;
