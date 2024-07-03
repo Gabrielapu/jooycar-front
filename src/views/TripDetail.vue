@@ -14,89 +14,9 @@
     </v-btn>
   </div>
   <hr class="mx-2 mb-2">
-  <div style="height: 95vh" class="w-100">
-    <l-map
-      v-if="tStore.selectedTrip?.id"
-      :zoom="zoom" 
-      :center="center"
-      :use-global-leaflet="false"
-    >
-      <l-tile-layer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        layer-type="base"
-        name="OpenStreetMap"
-      ></l-tile-layer>
-      <l-marker 
-        :lat-lng="[
-          // tStore.selectedTrip.start.lat,
-          // tStore.selectedTrip.start.lon
-          -40.275932, -73.077630
-        ]"
-      />
-      <l-marker 
-        :lat-lng="[
-          // tStore.selectedTrip.end.lat,
-          // tStore.selectedTrip.end.lon
-          -40.304368, -73.057450
-        ]"
-      />
-      <l-polygon :lat-lngs="getCoordinates()" color="green"/>
-    </l-map>
-  </div>
+  <Map />
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from "vue";
-import { 
-  LMap, 
-  LTileLayer, 
-  LMarker,
-  LPolygon
-} from "@vue-leaflet/vue-leaflet";
-import { useTripStore } from '../stores/trip.js'
-import { useRoute } from "vue-router";
-
-const tStore = useTripStore()
-const zoom = ref(18)
-const center = ref([])
-const route = useRoute()
-
-onBeforeMount(() => {
-  console.log(route.params.id)
-  tStore.setSelectedTrip(route.params.id)
-  console.log(tStore.selectedTrip)
-  if(tStore.selectedTrip?.id) {
-    center.value = [
-      // tStore.selectedTrip.start.lat,
-      // tStore.selectedTrip.start.lon
-      -40.275932, -73.077630
-    ]
-  }
-})
-
-function getCoordinates() {
-  return [
-    [
-      // tStore.selectedTrip.boundingBox[0].lat,
-      // tStore.selectedTrip.boundingBox[0].lon
-      -40.275932, -73.077630
-    ],
-    [
-      // tStore.selectedTrip.boundingBox[1].lat,
-      // tStore.selectedTrip.boundingBox[1].lon
-      -40.274292, -73.056820
-    ],
-    [
-      // tStore.selectedTrip.boundingBox[2].lat,
-      // tStore.selectedTrip.boundingBox[2].lon
-      
-      -40.304368, -73.057450
-    ],
-    [
-      // tStore.selectedTrip.boundingBox[3].lat,
-      // tStore.selectedTrip.boundingBox[3].lon
-      -40.303796, -73.078039
-    ],
-  ]
-}
+import Map from '../components/Map.vue'
 </script>
