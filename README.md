@@ -1,35 +1,32 @@
 # jooycar-front
 
-This template should help get you started developing with Vue 3 in Vite.
+Este es un proyecto en Vue 3 para postular a un puesto de trabajo como
+desarrollador front con VueJS
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Comando para instalar dependencias
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Comando para hacer correr o funcionar el proyecto en local
 
 ```sh
 npm run dev
+
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Comando para ejecutar test unitarios
 
 ```sh
 npm run test:unit
 ```
+
+Los comandos deben ejecutarse en la terminal, estando ubicados en la
+carpeta del proyecto
+
+El endpoint proporcionado a veces falla y no devuelve datos. Para efectos
+del test, agregue un registro manualmente para que siempre muestre un dato.
+
+Además este registro manual es el que permite tener una mejor visión de las
+funcionalidades en el detalle del viaje, especialmente respecto al boundingBox
