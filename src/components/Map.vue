@@ -93,7 +93,7 @@ function getCoordinates() {
 
 <style scoped>
 .map {
-  height: 95vh;
+  height: 90vh;
   width: 100%;
 }
 </style>

@@ -8,19 +8,19 @@ export const useTripStore = defineStore('tripStore', () => {
   const mockTrip = {
     id : "manualTrip",
     start : {
-      time : 1642539928000,
+      time : 1720018976000,
       lat : -40.275898,
       lon : -73.071979,
       address : "Arturo Prat 6"
     },
     end : {
-      time : 1642541428000,
+      time : 1720019276000,
       lat : -40.300796,
       lon : -73.085338,
       address : "Arturo Prat 105"
     },
     distance : 3,
-    duration : 300000,
+    duration : 360000,
     overspeedsCount : 2,
     boundingBox : [
       {
@@ -44,13 +44,21 @@ export const useTripStore = defineStore('tripStore', () => {
   const baseUrl = 
     'https://virtserver.swaggerhub.com/CONTABILIDAD/JooycarTest/1.0.0'
   
-  async function getTrips(filters) {
+  async function getTrips({start, end, distance}) {
+    console.log(start, end, distance)
     try {
-      const url = `${baseUrl}/api/trips/v1`
-        // url += ``
+      let url = `${baseUrl}/api/trips/v1?limit=10`
+
+      if(start) url += `&start_gte=${start}`
+      if(end) url += `&start_lte=${end}`
+      if(distance !== null && distance !== undefined) {
+        url += `&distance_gte=${distance}`
+      }
+
       const res = await axios.get(url)
       trips.value = []
       trips.value = res.data.trips
+
     } catch (e) {
       console.error(e)
     } finally {
