@@ -12,9 +12,10 @@ import { es } from 'vuetify/locale'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
-
 import dayjs from './plugins/dayjs.js'
 import "leaflet/dist/leaflet.css";
+import VueDatePicker from './plugins/vue3datepicker'
+
 
 const vuetify = createVuetify({
   components,
@@ -36,5 +37,6 @@ app.use(router)
 app.use(vuetify)
 
 app.provide('dayjs', dayjs)
+app.component('VueDatePicker', VueDatePicker);
 
 app.mount('#app')

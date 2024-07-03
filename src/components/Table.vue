@@ -91,7 +91,7 @@ function getMinutesFromMilliseconds(miliseconds) {
 }
 
 function goToTripDetail(id) {
-  tStore.setSelectedTrip(id)
+  tStore.setSelectedTrip(id, props.trips)
   router.push(`/trip/${id}`)
 }
 </script>

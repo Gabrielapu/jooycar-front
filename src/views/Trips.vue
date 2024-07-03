@@ -6,7 +6,8 @@
     </h1>
   </div>
   <hr class="mx-4 mb-2">
-  <Filters @search="e => fetchTrips(e)"/>
+  <!-- <Filters @search="e => fetchTrips(e)"/> -->
+  <Filters @search="e => filterData(e)"/>
   <Table
     :loading="loading"
     :trips="trips"
@@ -16,15 +17,17 @@
 <script setup>
 import Table from '../components/Table.vue'
 import Filters from '../components/Filters.vue'
-import { onMounted, reactive, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { useTripStore } from '../stores/trip.js';
+import mockTrips from '../mock/trips.json';
 
 const tStore = useTripStore()
 const loading = ref(false)
-let trips = reactive([])
+let trips = ref([])
 
-onMounted(async () => {
-  await fetchTrips()
+onBeforeMount(() => {
+  // await fetchTrips()
+  trips.value = mockTrips
 })
 
 async function fetchTrips(filters) {
@@ -44,6 +47,20 @@ async function fetchTrips(filters) {
   trips = tStore.trips
   loading.value = false
 }
+
+function filterData({startDate, endDate, distance}) {
+  const filters = {
+    start: trip => startDate ? trip.start.time >= startDate : true,
+    end: trip => endDate ? trip.end.time <= endDate : true,
+    distance: trip => distance ? trip.distance >= distance : true
+  }
+  trips.value = mockTrips
+    .filter(trip => 
+      filters.start(trip) && filters.end(trip) && filters.distance(trip)
+    )
+}
+
+
 </script>
 
 <style scoped> 

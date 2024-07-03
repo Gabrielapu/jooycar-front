@@ -1,5 +1,7 @@
 # jooycar-front
 
+url: https://jooycartest.netlify.app/
+
 Este es un proyecto en Vue 3 para postular a un puesto de trabajo como
 desarrollador front con VueJS
 
@@ -30,3 +32,13 @@ del test, agregue un registro manualmente para que siempre muestre un dato.
 
 Además este registro manual es el que permite tener una mejor visión de las
 funcionalidades en el detalle del viaje, especialmente respecto al boundingBox
+
+## Instrucciones Docker 
+
+# Instalar docker en tu sistema operativo
+
+# Construir la Imagen Docker estando en la carpeta de tu proyecto
+docker build -t nombre-imagen
+
+# Ejecutar el Contenedor Docker
+docker run -p 8080:8080 nombre-imagen

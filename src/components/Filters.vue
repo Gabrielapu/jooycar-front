@@ -12,8 +12,9 @@
           label="Fecha de inicio"
           hide-header
           clearable
+          readonly
           v-bind="props"
-          @click:clear="startDate = null"
+          @click:clear="startDate = null; emitFilters()"
         />
       </template>
       <v-date-picker 
@@ -31,8 +32,9 @@
           hide-details
           label="Fecha de fin"
           clearable
+          readonly
           v-bind="props"
-          @click:clear="endDate = null"
+          @click:clear="endDate = null; emitFilters()"
         />
       </template>
       <v-date-picker 
@@ -52,7 +54,7 @@
       hide-details
       type="number"
       min="0"
-      @click:clear="distance = null"
+      @click:clear="distance = null; emitFilters()"
     />
     <v-btn
       color="primary"
@@ -85,7 +87,6 @@ const computeEndDate = computed(() => {
 })
 
 function emitFilters() {
-  if(!startDate.value && !endDate.value && !distance.value) return
   emit('search', {
     startDate: startDate.value,
     endDate: endDate.value,
