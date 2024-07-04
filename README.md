@@ -24,14 +24,16 @@ npm run dev
 npm run test:unit
 ```
 
-Los comandos deben ejecutarse en la terminal, estando ubicados en la
+Los comandos deben ejecutarse en la terminal, ubicandose en la
 carpeta del proyecto
 
 El endpoint proporcionado a veces falla y no devuelve datos. Para efectos
-del test, agregue un registro manualmente para que siempre muestre un dato.
+del test, agregue registros manualmente para que siempre muestre un dato.
 
-Además este registro manual es el que permite tener una mejor visión de las
-funcionalidades en el detalle del viaje, especialmente respecto al boundingBox
+Pero de todas formas, esta el código para el GET al backend
+
+El primer registro de los 3 permite tener una mejor idea del funcionamiento
+del boundingBox
 
 ## Instrucciones Docker 
 

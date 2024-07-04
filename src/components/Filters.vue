@@ -1,49 +1,17 @@
 <template>
   <div class="filters">
-    <v-menu>
-      <template v-slot:activator="{ props }">
-        <v-text-field
-          v-model="computeStartDate"
-          class="ml-4 mr-2"
-          variant="outlined"
-          density="compact"
-          hide-details
-          locale="es-ES"
-          label="Fecha de inicio"
-          hide-header
-          clearable
-          readonly
-          v-bind="props"
-          @click:clear="startDate = null; emitFilters()"
-        />
-      </template>
-      <v-date-picker 
-        header="" 
-        title="Seleccionar fecha" 
-        v-model="startDate" />
-    </v-menu>
-    <v-menu>
-      <template v-slot:activator="{ props }">
-        <v-text-field
-          v-model="computeEndDate"
-          class="mr-2"
-          variant="outlined"
-          density="compact"
-          hide-details
-          label="Fecha de fin"
-          clearable
-          readonly
-          v-bind="props"
-          @click:clear="endDate = null; emitFilters()"
-        />
-      </template>
-      <v-date-picker 
-        v-model="endDate" 
-        header=""
-        title="Seleccionar fecha" 
-        :min="startDate"
-      />
-    </v-menu>
+    <DatePicker 
+      v-model="startDate" 
+      class="ml-4"
+      placeholder="Fecha de inicio"
+      @clear="startDate = null; emitFilters()"
+    />
+    <DatePicker 
+      v-model="endDate" 
+      placeholder="Fecha de inicio"
+      :min-date="startDate"
+      @clear="endDate = null; emitFilters()"
+    />
     <v-text-field
       v-model="distance"
       label="Distancia"
@@ -68,28 +36,19 @@
 </template>
 
 <script setup>
-import { inject, ref, computed } from 'vue';
+import { ref } from 'vue';
+import DatePicker from './DatePicker.vue';
 
 const emit = defineEmits(['search'])
-const dayjs = inject('dayjs')
+
 const startDate = ref(null)
 const endDate = ref(null)
 const distance = ref(null)
 
-const computeStartDate = computed(() => {
-  if(!startDate.value) return null
-  return dayjs(startDate.value).format('DD-MM-YYYY')
-})
-
-const computeEndDate = computed(() => {
-  if(!endDate.value) return null
-  return dayjs(endDate.value).format('DD-MM-YYYY')
-})
-
 function emitFilters() {
   emit('search', {
-    startDate: startDate.value,
-    endDate: endDate.value,
+    startDate: Date.parse(startDate.value),
+    endDate: Date.parse(endDate.value),
     distance: distance.value
   })
 }

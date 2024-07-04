@@ -57,7 +57,6 @@ import { useRoute } from "vue-router";
 const tStore = useTripStore()
 const zoom = ref(15)
 const center = ref([])
-const route = useRoute()
 
 onBeforeMount(() => {
   if(tStore.selectedTrip?.id) {

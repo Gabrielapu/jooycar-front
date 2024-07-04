@@ -32,11 +32,7 @@
       </tr>
     </tbody>
     <tbody v-if="!loading">
-      <tr
-        v-for="trip in trips"
-        :key="trip.id"
-        class="text-center"
-      >
+      <tr v-for="trip in trips" :key="trip.id" class="text-center">
         <td>
           {{ getCustomDateFormat(trip.start.time) }} <br>        
           {{ trip.start.address }}
