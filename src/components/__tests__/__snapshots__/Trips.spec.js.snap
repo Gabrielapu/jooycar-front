@@ -1,50 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Filters.vue > renders correctly 1`] = `
-"<div data-v-11dc0277="" class="mx-4 my-2">
-  <h1 data-v-11dc0277="" class="text-h6"> Listado de viajes <h2 data-v-11dc0277="" class="text-subtitle-1">Este es un listado de tus viajes</h2>
-  </h1>
-</div>
-<hr data-v-11dc0277="" class="mx-4 mb-2">
-<div data-v-11dc0277="" class="filters">
-  <v-menu>
-    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
-  </v-menu>
-  <v-menu>
-    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
-  </v-menu>
-  <v-text-field label="Distancia" class="mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
-  <v-btn color="primary" variant="outlined" class="mr-4"> Buscar </v-btn>
-</div>
-<v-table data-v-11dc0277="" class="elevation-1 mx-4 border-sm rounded-lg">
-  <thead>
-    <tr>
-      <th class="text-body-1 text-center"> Inicio </th>
-      <th class="text-body-1 text-center"> Término </th>
-      <th class="text-body-1 text-center"> Distancia y tiempo </th>
-      <th class="text-body-1 text-center"> Acciones </th>
-    </tr>
-  </thead>
-  <!--v-if-->
-  <tbody></tbody>
-</v-table>"
-`;
-
 exports[`Trips.vue > renders correctly 1`] = `
 "<div data-v-11dc0277="" class="mx-4 my-2">
   <h1 data-v-11dc0277="" class="text-h6"> Listado de viajes <h2 data-v-11dc0277="" class="text-subtitle-1">Este es un listado de tus viajes</h2>
   </h1>
 </div>
 <hr data-v-11dc0277="" class="mx-4 mb-2">
+<!-- <Filters @search="e => fetchTrips(e)"/> -->
 <div data-v-11dc0277="" class="filters">
-  <v-menu>
-    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
-  </v-menu>
-  <v-menu>
-    <v-date-picker header="" title="Seleccionar fecha"></v-date-picker>
-  </v-menu>
-  <v-text-field label="Distancia" class="mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
-  <v-btn color="primary" variant="outlined" class="mr-4"> Buscar </v-btn>
+  <vuedatepicker locale="es" auto-apply="" class="w-25 start-picker ml-4" time-picker-inline=""></vuedatepicker>
+  <vuedatepicker locale="es" auto-apply="" class="w-25 end-picker" time-picker-inline=""></vuedatepicker>
+  <v-text-field label="Distancia" class="distance-input mr-2" variant="outlined" density="compact" clearable="" hide-details="" type="number" min="0"></v-text-field>
+  <v-btn color="primary" variant="outlined" class="search-button mr-4"> Buscar </v-btn>
 </div>
 <v-table data-v-11dc0277="" class="elevation-1 mx-4 border-sm rounded-lg">
   <thead>
@@ -56,6 +23,31 @@ exports[`Trips.vue > renders correctly 1`] = `
     </tr>
   </thead>
   <!--v-if-->
-  <tbody></tbody>
+  <tbody>
+    <tr class="text-center">
+      <td>11:03 - 03/07/2024 <br> Arturo Prat 6 1</td>
+      <td>11:08 - 03/07/2024 <br> Arturo Prat 105 1</td>
+      <td>3 km <br> 6 minutos</td>
+      <td>
+        <v-btn class="my-button" color="primary" variant="outlined" density="compact"> Ver detalle </v-btn>
+      </td>
+    </tr>
+    <tr class="text-center">
+      <td>18:05 - 18/01/2022 <br> Avenida Apoquindo 291</td>
+      <td>18:30 - 18/01/2022 <br> Avenida Grecia 1043</td>
+      <td>10.4 km <br> 25 minutos</td>
+      <td>
+        <v-btn class="my-button" color="primary" variant="outlined" density="compact"> Ver detalle </v-btn>
+      </td>
+    </tr>
+    <tr class="text-center">
+      <td>18:32 - 18/01/2022 <br> Avenida La Florida 923</td>
+      <td>18:37 - 18/01/2022 <br> Avenida El Peñón 65</td>
+      <td>4.5 km <br> 5 minutos</td>
+      <td>
+        <v-btn class="my-button" color="primary" variant="outlined" density="compact"> Ver detalle </v-btn>
+      </td>
+    </tr>
+  </tbody>
 </v-table>"
 `;

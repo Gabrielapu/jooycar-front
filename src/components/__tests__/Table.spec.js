@@ -80,7 +80,7 @@ describe('Table.vue', () => {
     const button = wrapper.find('.my-button')
     expect(button.exists()).toBe(true)
     await button.trigger('click')
-    expect(tripStore.setSelectedTrip).toHaveBeenCalledWith(1)
+    expect(tripStore.setSelectedTrip).toHaveBeenCalledWith(1, wrapper.vm.trips)
     expect(router.push).toHaveBeenCalledWith('/trip/1')
   })
 })

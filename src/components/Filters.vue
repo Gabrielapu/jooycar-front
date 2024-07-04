@@ -2,12 +2,13 @@
   <div class="filters">
     <DatePicker 
       v-model="startDate" 
-      class="ml-4"
+      class="start-picker ml-4"
       placeholder="Fecha de inicio"
       @clear="startDate = null; emitFilters()"
     />
     <DatePicker 
       v-model="endDate" 
+      class="end-picker"
       placeholder="Fecha de inicio"
       :min-date="startDate"
       @clear="endDate = null; emitFilters()"
@@ -15,7 +16,7 @@
     <v-text-field
       v-model="distance"
       label="Distancia"
-      class="mr-2"
+      class="distance-input mr-2"
       variant="outlined"
       density="compact"
       clearable
@@ -27,7 +28,7 @@
     <v-btn
       color="primary"
       variant="outlined"
-      class="mr-4"
+      class="search-button mr-4"
       @click="emitFilters()"
     >
       Buscar
@@ -40,7 +41,6 @@ import { ref } from 'vue';
 import DatePicker from './DatePicker.vue';
 
 const emit = defineEmits(['search'])
-
 const startDate = ref(null)
 const endDate = ref(null)
 const distance = ref(null)
