@@ -40,7 +40,7 @@ del boundingBox
 Instalar docker en tu sistema operativo
 
 ## Construir la Imagen Docker estando en la carpeta de tu proyecto
-docker build -t nombre-imagen
+docker build -t nombre-imagen . /*El punto es necesario*/
 
 ## Ejecutar el Contenedor Docker
 docker run -p 8080:8080 nombre-imagen

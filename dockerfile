@@ -1,20 +1,23 @@
-# Usa una imagen de Node.js como base
-FROM node:18
+# Use the official Node.js image as the base image
+FROM node:lts-alpine
 
-# Establece el directorio de trabajo dentro del contenedor
+# Set the working directory in the container
 WORKDIR /app
 
-# Copia los archivos de tu proyecto al directorio de trabajo del contenedor
-COPY . .
+# Copy package.json and package-lock.json (if using npm)
+COPY package*.json ./
 
-# Instala las dependencias del proyecto
+# Install dependencies
 RUN npm install
 
-# Compila la aplicación para producción
+# Copy the rest of the application code
+COPY . .
+
+# Build the Vue app using Vite
 RUN npm run build
 
-# Expone el puerto 8080 para que pueda ser accesible desde fuera del contenedor
+# Expose the port your app will be running on
 EXPOSE 8080
 
-# Comando para iniciar la aplicación cuando se ejecute el contenedor
-CMD ["npm", "run", "dev"]
+# Start the app
+CMD [ "npm", "run", "dev" ]
