@@ -3,7 +3,7 @@
     <DatePicker 
       v-model="startDate" 
       class="start-picker ml-4"
-      placeholder="Fecha de inicio"
+      placeholder="Fecha de Inicio"
       @clear="startDate = null; emitFilters()"
     />
     <DatePicker 
